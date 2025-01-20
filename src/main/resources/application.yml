@@ -1,0 +1,24 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: eureka-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: ai-server
+          uri: lb://OLLAMA-EMBEDDING-SERVER
+          predicates:
+            - Path=/api/embeded/**
+#            - Path=/api/project/**
+#            - Path=/api/embeded-group/**
+
+eureka:
+  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+
+
