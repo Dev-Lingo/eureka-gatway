@@ -10,7 +10,7 @@ spring:
         - id: ai-server
           uri: lb://OLLAMA-EMBEDDING-SERVER
           predicates:
-            - Path=/api/embeded/**
+            - Path=/ai/**
 #            - Path=/api/project/**
 #            - Path=/api/embeded-group/**
 
@@ -19,6 +19,6 @@ eureka:
 #    register-with-eureka: false
 #    fetch-registry: false
     service-url:
-      defaultZone: http://localhost:8081/eureka
+      defaultZone: http://${EUREKA_HOST:192.168.0.55}:${EUREKA_PORT:8081}/eureka/
 
 
